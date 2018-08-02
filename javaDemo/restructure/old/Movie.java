@@ -9,9 +9,9 @@ package javaDemo.restructure.old;
  */
 public class Movie {
 
-    public static final int childrens = 2;
-    public static final int regular = 0;
-    public static final int new_release = 1;
+    public static final int regular = 0; //常规片
+    public static final int new_release = 1; //新片
+    public static final int childrens = 2; //儿童片
 
     private String title;
     private int priceCode;
