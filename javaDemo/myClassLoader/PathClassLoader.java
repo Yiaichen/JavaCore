@@ -3,9 +3,7 @@ package javaDemo.myClassLoader;
 import java.io.*;
 
 /**
- * ����ָ��Path�µ�����������
- *
- * @author Administrator
+ * 未完成
  */
 public class PathClassLoader extends ClassLoader {
 
