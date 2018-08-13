@@ -13,11 +13,11 @@ Java 知识点，继续完善中。。。
 
 
 ### 常用集合
-- [ArrayList/Vector]
-- [LinkedList]
-- [HashMap]
-- [HashSet]
-- [LinkedHashMap]
+- [ArrayList/Vector]()
+- [LinkedList]()
+- [HashMap]()
+- [HashSet]()
+- [LinkedHashMap]()
 
 ### Java 多线程
 - [Semaphore深入浅出](http://vayi.site/2018/05/15/semaphore/)
@@ -25,6 +25,6 @@ Java 知识点，继续完善中。。。
 
 ### 联系作者
 
-> QQ:584947742
+> QQ: 584947742
 
 <img src="http://vayi.site/images/wechatpay.jpg" width="300"/> 
