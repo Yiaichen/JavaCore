@@ -18,7 +18,7 @@ package javaDemo.leetcode.string;
 public class IsPalindrome {
 
     public static void main(String[] args) {
-        String s = "race a car";
+        String s = "A man, a plan, a canal: Panama";
         System.out.println(isPalindrome(s));
     }
 
@@ -26,7 +26,7 @@ public class IsPalindrome {
         s = s.toLowerCase();
         StringBuilder l = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
-            if ((s.charAt(i) - 0 >= 48 && s.charAt(i) - 0 <= 57) || (s.charAt(i) - 0 >= 97 && s.charAt(i) - 0 <= 122)) {
+            if ((s.charAt(i) >= '0' && s.charAt(i) <= '9') || (s.charAt(i) >= 'a' && s.charAt(i) <= 'z')) {
                 l.append(s.charAt(i));
             }
         }
