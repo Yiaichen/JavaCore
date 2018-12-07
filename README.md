@@ -32,7 +32,7 @@ Java 知识点，继续完善中。。。
 - [MYSQL锁以及死锁的产生跟解决](http://vayi.site/2018/08/17/MYSQL_LOCK/)
 - [Mysql基本调优 一个sql的基本分析步骤]()
 
-### 数据结构
+### 数据结构与算法
 - [基础排序算法](https://github.com/Yiaichen/JavaCore/tree/master/sort)
 - [leetcode字符串基础](https://github.com/Yiaichen/JavaCore/tree/master/leetcode/string)
 - 链表
