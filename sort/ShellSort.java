@@ -1,30 +1,34 @@
 package sort;
 
 /**
- * 选择排序
- * 在未排序序列中找到最小元素，放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小元素
- * 然后放到已排序序列的末尾，循环直到所有元素均排序完毕。
+ * 希尔排序
+ * 插入排序的改进版，优先比较距离远的元素，减少交换次数
  * <p>
- * 1、初始状态：无序区为R[1..n]，有序区为空
- * 2、第i趟排序(i=1,2,3…n-1)开始时，当前有序区和无序区分别为R[1..i-1]和R[i..n]
- * 该趟排序从当前无序区中选出最小的记录 R[k]，将它与无序区的第1个记录R[i]交换，使R[1..i]和R[i+1..n]分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区
- * 3、循环n-1次，排序完成
+ * 1、选择一个增量序列t1，t2，…，tk，其中ti>tj，tk=1
+ * 2、按增量序列个数k，对序列进行k 趟排序
+ * 3、每趟排序，根据对应的增量ti，将待排序列分割成若干长度为m 的子序列，分别对各子表进行直接插入排序。
+ * 仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度
  */
 public class ShellSort {
 
     public static void main(String[] args) {
         int[] a = {5, 2, 9, 4, 7, 6, 1, 3, 8};
-        int minIndex, temp;
-        for (int i = 0; i < a.length - 1; i++) { //外层循环，从无序区第一个元素开始到数组倒数第二个元素，时间复杂度N
-            minIndex = i; //每次外层循环假设无序区第一个元素是最小元素
-            for (int j = i + 1; j < a.length; j++) {    //内层循环，从假设的最小元素的后一个位置开始，到数组最后一个元素，时间复杂度N
-                if (a[j] < minIndex) { //判断内层循环的元素是否小于假设的最小元素
-                    minIndex = j; //如果比最小元素小，标记该元素的位置为新的最小元素的位置，内层循环完毕，会找出无序区的最小值
+        int h = 1; //希尔排序是使间隔为h的元素有序
+        int insertIndex, insertElement;
+        while (h < a.length / 3) { //while循环，扩大h
+            h = 3 * h + 1; //这里用3倍作为希尔排序的间隔，是常用的值，加1是为了防止排序的都是3的倍数
+        }
+        while (h >= 1) { //while循环让h从大到小插入排序
+            for (int i = h; i < a.length; i++) {  //从h位置开始，对整个数组遍历，i为插入元素的位置
+                insertIndex = i - h; //插入的位置，默认前面间隔h的位置
+                insertElement = a[i]; //新插入的元素，默认外层循环的最后一个元素
+                while (insertIndex >= 0 && a[insertIndex] > insertElement) { //内层循环，只要新元素比待插入位置的元素小就继续
+                    a[insertIndex + h] = a[insertIndex]; //比待插入元素大的元素后移h位
+                    insertIndex -= h; //插入位置前移h位
                 }
+                a[insertIndex + h] = insertElement; //内层循环结束，把新元素放到插入位置后面
             }
-            temp = a[i];
-            a[i] = a[minIndex];
-            a[minIndex] = temp;    //无序区真正最小值和第一个元素交换位置，下一次循环无序区从下一个值开始
+            h = h / 3; //更大间隔的插入完成，缩小插入间隔
         }
         for (int i : a) {
             System.out.print(i + " ");
